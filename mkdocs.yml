@@ -45,16 +45,3 @@ plugins:
   - search
   - roamlinks 
 
-nav:
-   - Index: index.md
-   - Overview:
-     - General: General.md
-     - Quickstart: Quickstart.md
-     - Transparency, Caution and Risk: caution.md
-     - Usage and Parameters: usage.md
-     - Changelog : Changelog.md
-     - Roadmap: Roadmap.mg
-   - Technology:
-     - Architecture: Architecture.md
-     - Indexing Rewards: indexing_rewards.md
-     - Developer: Developer.md

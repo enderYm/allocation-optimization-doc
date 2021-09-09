@@ -1,15 +1,17 @@
 # Allocation Optimization Tooling Documentation
 ## Table of Content
 
-- [[General]]
-- [[Quickstart]]
-- [[Changelog]]
-- [[Architecture]]
-- [[indexing_rewards]]
-- [[Roadmap]]
-- [[caution]]
-- [[usage]]
-- [[Developer]]
+- [[1. General]]
+- [[2. Quickstart]]
+- [[3. Usage and Parameters]]
+- [[4. Indexing Rewards]]
+- [[5. Architecture]]
+- [[6. Developer]]
+- [[7. Caution]]
+- [[8. Changelog]]
+- [[9. Roadmap]]
+
+
 
 
 ## Feedback
