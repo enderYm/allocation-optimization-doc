@@ -5,10 +5,10 @@
 - [[Quickstart]]
 - [[Changelog]]
 - [[Architecture]]
-- [[Indexing Rewards]]
+- [[indexing_rewards]]
 - [[Roadmap]]
-- [[Transparency, Caution and Risk]]
-- [[Usage and Parameters]]
+- [[caution]]
+- [[usage]]
 - [[Developer]]
 
 
