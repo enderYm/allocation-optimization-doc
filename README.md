@@ -1,5 +1,14 @@
 # The Graph Allocation Optimization
 
+## ⚠️ Automatic Allocations
+
+The possibility of running the allocation script automatically is now pushed to the main repository.
+But **be careful**, there are still many **edge cases** where the script doesn't work like desired.
+Allocations to broken subgraph leads to problems in the automatic deallocation. If broken allocations
+are created, you have to manually close these allocations with a 0x0 POI. See [The Graph Academy - Manually Closing Allocations](https://docs.thegraph.academy/technical-documentation/tips-and-tricks/manuallyclosingallocationsforfailedsubgraphs).
+
+It is recommended to use the semi-automated way of using the tooling. So for the cli tool set the flag --automation to false
+(default false). And in the dropdown in the web application set the automation to false.
 ## General
 Allocations are a very important tool for indexers. Depending on the amount of allocations and the distribution of allocations on different subgraphs the indexing reward is calculated. Of course, this could be done manually - or a rule for the distribution of the stake could be set in advance. However, this might lead to not getting the optimum indexing reward.
 
