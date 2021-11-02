@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Architecture - Allocation Optimization Tooling</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Allocation Optimization Tooling" class="md-header__button md-logo" aria-label="Allocation Optimization Tooling" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Allocation Optimization Tooling
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Allocation Optimization Tooling" class="md-nav__button md-logo" aria-label="Allocation Optimization Tooling" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Allocation Optimization Tooling
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Allocation Optimization Tooling Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20General/" class="md-nav__link">
+        General 🌝
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Quickstart/" class="md-nav__link">
+        🚀Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Usage%20and%20Parameters/" class="md-nav__link">
+        Usage and Parameters
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Indexing%20Rewards/" class="md-nav__link">
+        Indexing Rewards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Architecture
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-functionality" class="md-nav__link">
+    Core Functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-application" class="md-nav__link">
+    Web Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimization-data" class="md-nav__link">
+    Optimization Data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Developer/" class="md-nav__link">
+        Developer Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Caution/" class="md-nav__link">
+        Transparency, Caution and Risk ⚠️⛔️
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-functionality" class="md-nav__link">
+    Core Functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-application" class="md-nav__link">
+    Web Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimization-data" class="md-nav__link">
+    Optimization Data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
+<p>The tech stack for the allocation optimization tool contains different libraries as well as tools. The used programming language is <strong>python</strong>. Let's start with the Allocation Optimization Script itself. This core module of the application contains the relevant steps to optimize the allocations so that the highest indexing rewards can be achieved according to the given parameters.</p>
+<h2 id="core-functionality">Core Functionality<a class="headerlink" href="#core-functionality" title="Permanent link">&para;</a></h2>
+<p>The script is based on the <a href="http://www.pyomo.org/">Pyomo</a>. optimization modeling language, which is based on Python and is open source. With the help of Pyomo, it is possible to use different open source and commercial optimizers for the optimization process. We use the open-source GLPK package (<a href="https://www.gnu.org/software/glpk/">GNU Linear Programming Kit</a>). GLPK allows solving large-scale linear programming, mixed-integer programming, and other problems.</p>
+<p>The script utilizes GraphQL queries to the meta subgraph to retrieve the relevant information for the allocation optimization (current allocations, network information, etc.). Furthermore, open APIs are used to retrieve price data for the GRT token, ETH, and fiat currencies, as well as to get the current gas price. An ssh tunnel to the indexer graph node and the database server is used to gather information about the subgraph sync statuses and the latest valid POI for broken subgraphs. RPC calls to ethereum nodes are used to call the <a href="https://etherscan.io/address/0x9Ac758AB77733b4150A901ebd659cbF8cB93ED66#readProxyContract">rewards manager contract</a> to get the pending rewards per subgraph.</p>
+<p>The data preprocessing, manipulation and preparation are performed using <a href="https://pandas.pydata.org/">pandas</a>. The allocation optimization script can be executed either in the command line or as a web application.</p>
+<h2 id="web-application">Web Application<a class="headerlink" href="#web-application" title="Permanent link">&para;</a></h2>
+<p>The web application is based on streamlit. <a href="https://streamlit.io/">Streamlit</a> is a python package that allows the development of data-driven applications. Visual charts are also displayed in this web interface using <a href="https://plotly.com/">plotly</a>.</p>
+<p>The web application takes the core logic from the <strong>optimizer.py</strong> file and displays the optimization process in a visual gui. The parameters are supplied via streamlit objects (checkboxes, sliders...) which are defined in the <strong>./src/webapp/sidebar.py</strong> file.</p>
+<p>The visualization of the optimization process is implemented in <strong>./src/webapp/display_optimizer.py</strong>. This includes functions to display further subgraph information, charts and data tables for the current optimization run.</p>
+<p>Further metrics, such as price metrics, the DIY chart builder, and historical performance charts are implemented in <strong>./src/webapp/key_metrics.py</strong>. </p>
+<h2 id="optimization-data">Optimization Data<a class="headerlink" href="#optimization-data" title="Permanent link">&para;</a></h2>
+<p>The optimization runs are logged in a json file called "optimizer_log.json". It is located in the subdirectory <code>./data/</code>. Each optimization run is sasved as a key value pair. Each runs key is the <strong>datetime</strong> of the run.</p>
+<p>Following metrics and data points are stored:
+* <strong>Parameters:</strong> for the run
+* <strong>Price data</strong>: gas price, grt-usd, eth-usd, grt-eth
+* <strong>Network data:</strong> total indexing rewards, grt_issuance ...
+* <strong>Indexer data:</strong> total stake, total allocated tokens
+* <strong>Indexer's current allocations:</strong> Saved as a key-value pair with the subgraph ipfs hash as key
+* <strong>Current rewards:</strong> hourly, daily, weekly, yearly
+* <strong>Optimizer run data:</strong> Threshold reached/not reached, which subgraphs to allocate to, expected returns...</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-json">{  
+  &quot;2021-09-06-10:43&quot;: {  
+    &quot;datetime&quot;: &quot;2021-09-06-10:43&quot;,  
+    &quot;parameters&quot;: {  
+      &quot;indexer_id&quot;: &quot;0x453B5E165Cf98FF60167cCd3560EBf8D436ca86C&quot;,  
+      &quot;blacklist&quot;: false,  
+      &quot;parallel_allocations&quot;: 1,  
+      &quot;max_percentage&quot;: 0.05,  
+      &quot;threshold&quot;: 20,  
+      &quot;subgraph_list_parameter&quot;: false,  
+      &quot;threshold_interval&quot;: &quot;weekly&quot;,  
+      &quot;reserve_stake&quot;: 500,  
+      &quot;min_allocation&quot;: 0,  
+      &quot;min_signalled_grt_subgraph&quot;: 100,  
+      &quot;min_allocated_grt_subgraph&quot;: 100,  
+      &quot;app&quot;: &quot;web&quot;,  
+      &quot;slack_alerting&quot;: false  
+ },  
+    &quot;price_data&quot;: {  
+      &quot;gas_price_gwei&quot;: 105.928445249,  
+      &quot;allocation_gas_usage&quot;: 270000,  
+      &quot;ETH-USD&quot;: 3951.26,  
+      &quot;GRT-USD&quot;: 1.04,  
+      &quot;GRT-ETH&quot;: 0.00026276  
+ },  
+    &quot;network_data&quot;: {  
+      &quot;total_indexing_rewards&quot;: 196762472.49785247,  
+      &quot;total_tokens_signalled&quot;: 3315140.590051623,  
+      &quot;total_supply&quot;: 10180362807.536777,  
+      &quot;total_tokens_allocated&quot;: 3105721872.4989176,  
+      &quot;grt_issuance&quot;: 1000000012184945188,  
+      &quot;yearly_inflation_percentage&quot;: 1.0300000002147995  
+ },  
+    &quot;indexer&quot;: {  
+      &quot;indexer_total_stake&quot;: 2389720.538838383,  
+      &quot;indexer_total_allocated_tokens&quot;: 2389220.55  
+ },  
+    &quot;current_allocations&quot;: {  
+      &quot;QmRavjdwiaU7mFWT7Uum28Lf6y6cm397z6CdZPpLcFj9iR&quot;: {  
+        &quot;Address&quot;: &quot;0x303b502eba6fc9009263db01c6f1edeabe6427bb40a7e2e9be65f60760e5bb12&quot;,  
+        &quot;Name_x&quot;: &quot;Bot Bait v2&quot;,  
+        &quot;Allocation&quot;: 477944.11000000004,  
+        &quot;IndexingReward&quot;: 0.0,  
+        &quot;allocation_id&quot;: &quot;0x0505dc13c2440fc7ecfbdd8fb4576e47948cff17&quot;,  
+        &quot;Name_y&quot;: &quot;Bot Bait v2&quot;,  
+        &quot;signalledTokensTotal&quot;: 3412.8412500000004,  
+        &quot;stakedTokensTotal&quot;: 1697163.1099999999,  
+        &quot;indexing_reward_hourly&quot;: 10.107526298208883,  
+        &quot;indexing_reward_daily&quot;: 242.58237063492135,  
+        &quot;indexing_reward_weekly&quot;: 1698.0754347925108,  
+        &quot;indexing_reward_yearly&quot;: 88542.58093704746,  
+        &quot;pending_rewards&quot;: 3884.652857838089  
+ },  
+      &quot;QmT2McMyDQe5eVQJDESAXGygGU3yguwdREaLvq7ahGZiQ1&quot;: {  
+        &quot;Address&quot;: &quot;0x459aa5684fa2e9ce27420af9018f0317d9a58fd9e8d36bc065b6eebf7f546d2a&quot;,  
+        &quot;Name_x&quot;: &quot;dot-crypto-registry&quot;,  
+        &quot;Allocation&quot;: 477444.11000000004,  
+        &quot;IndexingReward&quot;: 0.0,  
+        &quot;allocation_id&quot;: &quot;0x07d048e19dd31c73777423bcb10a20f1b450d962&quot;,  
+        &quot;Name_y&quot;: &quot;dot-crypto-registry&quot;,  
+        &quot;signalledTokensTotal&quot;: 7668.932316167791,  
+        &quot;stakedTokensTotal&quot;: 5501770.109999999,  
+        &quot;indexing_reward_hourly&quot;: 6.998907718194807,  
+        &quot;indexing_reward_daily&quot;: 167.974989729743,  
+        &quot;indexing_reward_weekly&quot;: 1175.8241251128225,  
+        &quot;indexing_reward_yearly&quot;: 61310.8820917938,  
+        &quot;pending_rewards&quot;: 2896.8974332849807  
+ },  
+      &quot;QmU4yY98kYV4GUHJDYvpnrD9fqyB7HmvrTfq5KosWh8Lrh&quot;: {  
+        &quot;Address&quot;: &quot;0x55221e21ce7e608a8931f43a1704122501c58837cbb9aac6fdbb81bf4b507f26&quot;,  
+        &quot;Name_x&quot;: &quot;fei&quot;,  
+        &quot;Allocation&quot;: 477944.11000000004,  
+        &quot;IndexingReward&quot;: 0.0,  
+        &quot;allocation_id&quot;: &quot;0x547529b3fb503854cf2cc3b69b95e0b673d38d3b&quot;,  
+        &quot;Name_y&quot;: &quot;fei&quot;,  
+        &quot;signalledTokensTotal&quot;: 1924.339946715805,  
+        &quot;stakedTokensTotal&quot;: 997944.11,  
+        &quot;indexing_reward_hourly&quot;: 9.692324634960048,  
+        &quot;indexing_reward_daily&quot;: 232.61745926186728,  
+        &quot;indexing_reward_weekly&quot;: 1628.3211028178537,  
+        &quot;indexing_reward_yearly&quot;: 84905.387642787,  
+        &quot;pending_rewards&quot;: 3724.8364730953094  
+ },  
+      &quot;QmR6Sv5TPHktkK98GqZt4dhLNQ81CzXpASaqsibAxewv57&quot;: {  
+        &quot;Address&quot;: &quot;0x28ef98296776cf391293841a8f8a838cea705599b33d95dbd333049c631478c2&quot;,  
+        &quot;Name_x&quot;: &quot;makerdao-governance&quot;,  
+        &quot;Allocation&quot;: 477944.11000000004,  
+        &quot;IndexingReward&quot;: 0.0,  
+        &quot;allocation_id&quot;: &quot;0x93721ba038d1317464ebe2c9cf0dd4f569bae523&quot;,  
+        &quot;Name_y&quot;: &quot;makerdao-governance&quot;,  
+        &quot;signalledTokensTotal&quot;: 2215.506462674542,  
+        &quot;stakedTokensTotal&quot;: 1479250.1099999999,  
+        &quot;indexing_reward_hourly&quot;: 7.528072394411027,  
+        &quot;indexing_reward_daily&quot;: 180.67503302674024,  
+        &quot;indexing_reward_weekly&quot;: 1264.7243674799313,  
+        &quot;indexing_reward_yearly&quot;: 65946.39871480808,  
+        &quot;pending_rewards&quot;: 3297.482606101014  
+ },  
+      &quot;QmPXtp2UdoDsoryngUEMTsy1nPbVMuVrgozCMwyZjXUS8N&quot;: {  
+        &quot;Address&quot;: &quot;0x11bd056572a84f4f2700896fcd3a7434947cdb5a768ec4028f7935cd2cc2c687&quot;,  
+        &quot;Name_x&quot;: &quot;Totle Swap&quot;,  
+        &quot;Allocation&quot;: 477944.11000000004,  
+        &quot;IndexingReward&quot;: 0.0,  
+        &quot;allocation_id&quot;: &quot;0xcd39d994f0a7e22d24028e597041e1707a4a623a&quot;,  
+        &quot;Name_y&quot;: &quot;Totle Swap&quot;,  
+        &quot;signalledTokensTotal&quot;: 1950.003419570772,  
+        &quot;stakedTokensTotal&quot;: 1265417.11,  
+        &quot;indexing_reward_hourly&quot;: 7.745581829774142,  
+        &quot;indexing_reward_daily&quot;: 185.89529690823989,  
+        &quot;indexing_reward_weekly&quot;: 1301.2661896952388,  
+        &quot;indexing_reward_yearly&quot;: 67851.7953684505,  
+        &quot;pending_rewards&quot;: 3402.7965587005338  
+ }  
+    },  
+    &quot;current_rewards&quot;: {  
+      &quot;indexing_reward_hourly&quot;: 42.072412875548906,  
+      &quot;indexing_reward_daily&quot;: 1009.7451495615118,  
+      &quot;indexing_reward_weekly&quot;: 7068.211219898357,  
+      &quot;indexing_reward_yearly&quot;: 368557.0447548868  
+ },  
+    &quot;optimizer&quot;: {  
+      &quot;grt_per_allocation&quot;: 119461.02694191915,  
+      &quot;allocations_total&quot;: 20.0,  
+      &quot;stake_to_allocate&quot;: 2389220.538838383,  
+      &quot;optimized_allocations&quot;: {  
+        &quot;QmNNqS4Ftof3kGrTGrpynFYgeK5R6vVTEqADSN63vXEKC8&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Umbria&quot;,  
+          &quot;address&quot;: &quot;0x008f49562d4bdb43ae1b4b68097952d174fcec525019b0d270d2fe533a047d15&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0019853511385943645  
+ },  
+        &quot;QmNukFUkc6DspWQx8ZzRSvbpsBWaiPirQdbYPq6Qc4B4Wi&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Dummy Subgraph 1&quot;,  
+          &quot;address&quot;: &quot;0x087a6e8c03e01c5f29767e57ff2dd0ea619de26c46841ce4cf952e1c9cd64c07&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0021272326548612175  
+ },  
+        &quot;QmNyuWjzFxSaX9c9WCpWqVYYEo1TCtvfsL9gcqmhx7ArHy&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Bot Bait v1&quot;,  
+          &quot;address&quot;: &quot;0x098b3a9b9cb4299e66510822a1ce0c106c145a5724531509c3967077f659b8e4&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0018682955005493798  
+ },  
+        &quot;QmP7ZmWYHN9CTVZyEQ6zu1kuaJgi2AreAw3zFRjbgA5oMS&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Ribbon Finance&quot;,  
+          &quot;address&quot;: &quot;0x0b818c9b0a4eae4b7c2322636df77ce458ed9ff5e120a3d91524c66d1046f029&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.001792860095725464  
+ },  
+        &quot;QmPU2gPVfovDGxDHt8FpXbhbxPq3dWNT6cNd9xqZYcD7uA&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;elyfi&quot;,  
+          &quot;address&quot;: &quot;0x10bf983634fabedf30199c6c9c8960162a3b182ee8be3a7a4561e904bcbd0b19&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.002041595065280313  
+ },  
+        &quot;QmPVjCWWZeaN7Mw5P6GEhbGixFbv8XKvqTa1oTv7RQsosM&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;uniswap-v2-tokenHourData-subgraph&quot;,  
+          &quot;address&quot;: &quot;0x112efda0d0c6f9d853f3e0e5f7bc789003efbff0603c573fea0d79e63acc5720&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0019880954256876657  
+ },  
+        &quot;QmPdejzo2ENKgPxBFUh6KJ66YVFnYxmmxXpZpMoAzyL2dY&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Subgraph 21-QmPdejzo2ENKgPxBFUh6KJ66YVFnYxmmxXpZpMoAzyL2dY&quot;,  
+          &quot;address&quot;: &quot;0x133698f83f7ab5e98d36fb55f70ea4ceb121f284434bc232db1083e7a2067fc3&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.002045514850608105  
+ },  
+        &quot;QmPhfSkFPbooXNJUMcQSWjMXoJYF3GnWT4JmHkxYXA85Zz&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Bancor&quot;,  
+          &quot;address&quot;: &quot;0x143db715c25f1e97631fd370a1db89108baace5ae71366da39fa44136b3567b1&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.001668356507081701  
+ },  
+        &quot;QmQQeCUjemEf6urSR5SUvvdRTn9ZXdctHwuxjPJoFJD6wR&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;renft&quot;,  
+          &quot;address&quot;: &quot;0x1ebd1e97a93bc8864e26088336ddd6b4e6f2bdc760ee1e29b3a9766921527cb8&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0020115677900367354  
+ },  
+        &quot;QmQXc8NHJ9ZbFkWBBJLiQtLuHBaVZtqaBy2cvm7VchULAM&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;NFT Analytics BAYC&quot;,  
+          &quot;address&quot;: &quot;0x2085d7f6c1fcbfedff08446dc68104fd93f90f36d8247f217b6ead7983756d62&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0017770638165785454  
+ },  
+        &quot;QmQj3DDJzo9mS9m7bHriw8XdnU3od65HSThebeeDBQiujP&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Wrapped ETH&quot;,  
+          &quot;address&quot;: &quot;0x23739834f69676e56923f399b360beaf32cb222b1871dc85000ac7839b1c8682&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0029928953473274764  
+ },  
+        &quot;QmRWuFqUhuiggfSaSUsk4Z3BvZHwuwn66xw92k2fpNC2gF&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;PAX&quot;,  
+          &quot;address&quot;: &quot;0x2f33513a1eafee12fd3f75bbe0c6a25348a74887b1e566f911e8cc55a04b9d70&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.002122135597897978  
+ },  
+        &quot;QmRavjdwiaU7mFWT7Uum28Lf6y6cm397z6CdZPpLcFj9iR&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Bot Bait v2&quot;,  
+          &quot;address&quot;: &quot;0x303b502eba6fc9009263db01c6f1edeabe6427bb40a7e2e9be65f60760e5bb12&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0018786721923364576  
+ },  
+        &quot;QmRrHfw1Y1EZKUxd5MGTgmnbqf4hf8nynBG5F3ZQyjtVoF&quot;: {  
+          &quot;allocation_amount&quot;: 118986.026941918,  
+          &quot;name&quot;: &quot;burny-boys&quot;,  
+          &quot;address&quot;: &quot;0x342ab2a85b6fe158b76f900e2c13c0aaef70c6c3671616046e0dfd0cd48345c2&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0016565223849501901  
+ },  
+        &quot;QmS7VGsn5s8UTMrebMRVNub2qCBYK19Qvg4dGNdTqsHX4k&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Test remove soon&quot;,  
+          &quot;address&quot;: &quot;0x380f876c05b7fce7bd8234de974bf0d5a0b262f7325bdb1a785ce4a120691831&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0020431821109430093  
+ },  
+        &quot;QmSjSH4EQHRNVbwGSkcEGQzDDRsBSmiDF4z63DMthsXf1M&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;wildcards.world&quot;,  
+          &quot;address&quot;: &quot;0x41450cad731320fa6a709883e20bb2f8c6647e5b4937e7e59e0ed1373fa26efc&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0017377616680302067  
+ },  
+        &quot;QmSz8pavvfKeXXkSYsE5HH7UhD4LTKZ6szvnNohss5kxQz&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Keep network&quot;,  
+          &quot;address&quot;: &quot;0x4509060e1d1548bfd381baeacdadf0c163788e9dc472de48f523dbc4452742e3&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0017188725044591292  
+ },  
+        &quot;QmTKsqg2wUwsuGkeEnyKY1iPMdyaMXDhtCgtHeAxAe4X9r&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Cryptokitties&quot;,  
+          &quot;address&quot;: &quot;0x4a17b3535a7c534b1e65054a2cf8997ad7b76f3d56e9d3457ec09a75894ccfe1&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.002076849714983104  
+ },  
+        &quot;QmU3MkEQCHCJbZ5U6sJbifpNLKwehSnYRgSGbeNUyY8Kb2&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;Tacoswap Vision&quot;,  
+          &quot;address&quot;: &quot;0x54b81138d236538ce5098b45a63598cb6cc68f791fc67b239b63329db47b2d85&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.002465065297595677  
+ },  
+        &quot;QmU4yY98kYV4GUHJDYvpnrD9fqyB7HmvrTfq5KosWh8Lrh&quot;: {  
+          &quot;allocation_amount&quot;: 119486.026941919,  
+          &quot;name&quot;: &quot;fei&quot;,  
+          &quot;address&quot;: &quot;0x55221e21ce7e608a8931f43a1704122501c58837cbb9aac6fdbb81bf4b507f26&quot;,  
+          &quot;signal_stake_ratio&quot;: 0.0017221506176195688  
+ },  
+        &quot;indexingRewardHour&quot;: 49.90333067781851,  
+        &quot;indexingRewardDay&quot;: 1197.679936267644,  
+        &quot;indexingRewardWeek&quot;: 8383.752663117895,  
+        &quot;indexingRewardYear&quot;: 437153.17673769005  
+ },  
+      &quot;gas_costs_allocating_eth&quot;: 0.028600680217230005,  
+      &quot;gas_costs_parallel_allocation_new_close_eth&quot;: 1.1440272086892003,  
+      &quot;gas_costs_parallel_allocation_new_close_usd&quot;: 4520.3489486052895,  
+      &quot;gas_costs_parallel_allocation_new_close_grt&quot;: 4353.886469360634,  
+      &quot;increase_rewards_percentage&quot;: -42.99,  
+      &quot;increase_rewards_fiat&quot;: -3159.88,  
+      &quot;increase_rewards_grt&quot;: -3038.35,  
+      &quot;threshold_reached&quot;: false  
+ }  
+  }  
+},
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../4.%20Indexing%20Rewards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Indexing Rewards" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Indexing Rewards
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../6.%20Developer/" class="md-footer__link md-footer__link--next" aria-label="Next: Developer Documentation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Developer Documentation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,797 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Changelog - Allocation Optimization Tooling</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Allocation Optimization Tooling" class="md-header__button md-logo" aria-label="Allocation Optimization Tooling" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Allocation Optimization Tooling
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Allocation Optimization Tooling" class="md-nav__button md-logo" aria-label="Allocation Optimization Tooling" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Allocation Optimization Tooling
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Allocation Optimization Tooling Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20General/" class="md-nav__link">
+        General 🌝
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Quickstart/" class="md-nav__link">
+        🚀Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Usage%20and%20Parameters/" class="md-nav__link">
+        Usage and Parameters
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Indexing%20Rewards/" class="md-nav__link">
+        Indexing Rewards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Developer/" class="md-nav__link">
+        Developer Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Caution/" class="md-nav__link">
+        Transparency, Caution and Risk ⚠️⛔️
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Changelog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Changelog
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-103-beta" class="md-nav__link">
+    Release 1.0.3 beta 🍁
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0.3 beta 🍁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes" class="md-nav__link">
+    Bugfixes 🐞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-102-beta" class="md-nav__link">
+    Release 1.0.2 beta 🧪
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0.2 beta 🧪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes_1" class="md-nav__link">
+    Bugfixes 🐞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-101-beta" class="md-nav__link">
+    Release 1.0.1 beta 📈
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0.1 beta 📈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-10-beta" class="md-nav__link">
+    Release 1.0 beta 📤
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0 beta 📤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    Features 🆕
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes_2" class="md-nav__link">
+    Bugfixes 🐞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-103-beta" class="md-nav__link">
+    Release 1.0.3 beta 🍁
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0.3 beta 🍁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes" class="md-nav__link">
+    Bugfixes 🐞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-102-beta" class="md-nav__link">
+    Release 1.0.2 beta 🧪
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0.2 beta 🧪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes_1" class="md-nav__link">
+    Bugfixes 🐞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-101-beta" class="md-nav__link">
+    Release 1.0.1 beta 📈
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0.1 beta 📈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-10-beta" class="md-nav__link">
+    Release 1.0 beta 📤
+  </a>
+  
+    <nav class="md-nav" aria-label="Release 1.0 beta 📤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    Features 🆕
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes_2" class="md-nav__link">
+    Bugfixes 🐞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="release-103-beta">Release 1.0.3 beta 🍁<a class="headerlink" href="#release-103-beta" title="Permanent link">&para;</a></h2>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>added <strong>"--ignore_tx_costs"</strong> flag for ignoring gas costs for allocation openings / closings in calculating the threshold</li>
+</ul>
+<h3 id="bugfixes">Bugfixes 🐞<a class="headerlink" href="#bugfixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed a couple of bugs regarding df_log, which has a non unique index if there are parallel allocations.</li>
+<li>Fixed bugs regarding the automatic allocation</li>
+<li>Enhanced documentation</li>
+<li>Set automation flag in web application to "false"</li>
+</ul>
+<p>Attention: The automatic allocation flag is now pushed to the main branch. But you should still set it to false or test it on testnet. There could be edge cases which aren't accounted for so far.</p>
+<h2 id="release-102-beta">Release 1.0.2 beta 🧪<a class="headerlink" href="#release-102-beta" title="Permanent link">&para;</a></h2>
+<h3 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added support for automatic allocations via the indexer agent management endpoint (127.0.0.1:18000/)</li>
+<li>SetIndexingRules to Never for closing allocations</li>
+<li>checking if allocations were succesfully closed via web3.py and eventFilters for AllocationClosed</li>
+<li>SetIndexingRules to always for creating allocations</li>
+<li>checking if allocations were succesfully created via web3.py and eventFilters for AllocationsCreated</li>
+<li>Added Selectbox for Streamlit Web App to choose automatic allocations</li>
+</ul>
+<h3 id="bugfixes_1">Bugfixes 🐞<a class="headerlink" href="#bugfixes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Allocation Script wasn't gathering all SubgraphDeployments. Now set the limit to 1000</li>
+</ul>
+<h2 id="release-101-beta">Release 1.0.1 beta 📈<a class="headerlink" href="#release-101-beta" title="Permanent link">&para;</a></h2>
+<h3 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added support for running the optimization on <strong>testnet</strong>. Checkout the <strong>network</strong> parameter in <a href="../3.%20Usage%20and%20Parameters/">3. Usage and Parameters.md</a><ul>
+<li>Added support for testnet optimization in streamlit web application.</li>
+</ul>
+</li>
+<li>Refinement and addition of charts for historical performance tracking &amp; GRT performance.
+<img alt="" src="../img/historical_performance.png" />
+<img alt="" src="../img/historical_performance_2.png" />
+<img alt="" src="../img/current_rewards.png" /></li>
+</ul>
+<h2 id="release-10-beta">Release 1.0 beta 📤<a class="headerlink" href="#release-10-beta" title="Permanent link">&para;</a></h2>
+<h3 id="features_3">Features 🆕<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added <strong>subgraph_health_checks.py</strong> (optional: SSH tunnel on indexer local database). Allows indexers to fetch subgraphs that have errors, are not in sync, are depreciated or are from blacklisted subgraph developers. These functions, if applied, populate the config.json blacklist element automatically and helps mitigating bot-bait subgraphs.<ul>
+<li>Added automatic blacklisting for blacklisted subgraph developers. If there is a suspicious subgraph developer, the developer can be added to the config.json and the optimization script automatically blacklists all subgraphs released from this address</li>
+<li>Added automatic blacklisting of inactive (active status: False) subgraphs</li>
+<li>Added automatic blacklisting of subgraphs with bad health status (errors, not in sync</li>
+</ul>
+</li>
+<li>Added further parameters to change the behaviour of the allocation optimization script<ul>
+<li><strong>threshold_interval:</strong> Define the interval which is used for calculating the threshold requirment. Currently the recommended threshold interval is "weekly". Setting the threshold interval to weekly leads the optimization script to calculate threshold requirments based on weekly indexing rewards.</li>
+<li><strong>reserve_stake:</strong> Enables the indexer to define a dedicated amount of stake which should not be considered in the optimization. This reserve stake will not be allocated!</li>
+<li><strong>min_allocation:</strong> Set the minimum allocation in GRT per subgraph. If this value is above 0, every deployed subgraph will get the minimum allocation amount. <strong>ATTENTION 🚨: Setting this value above 0 leads to massive increases in transaction costs</strong></li>
+<li><strong>min_allocated_grt_subgraph:</strong> Defines the minimum GRT allocation requirment for a subgraph to be considered in the optimization process. If a subgraph have less GRT allocated than the min_allocated_grt_subgraph, then it will not be considered in the optimization process.</li>
+<li><strong>min_signalled_grt_subgraph:</strong> Defines the minimum GRT signal requirment for a subgraph to be considered in the optimization process. If a subgraph have less GRT signalled than the min_signalled_grt_subgraph, then it will not be considered in the optimization process.</li>
+<li><strong>slack_alerting:</strong> Enables the user to configure a slack alerting in a dedicated slack channel. Outputs if the optimization reached the threshold and how much increase / decrease in rewards is expected after the optimization. Configure the webhook and channel in the <strong>.env</strong> file.</li>
+</ul>
+</li>
+<li>Refactored the codebase. Now the script isn't bundled in one script.py file. A dedicated <strong>src</strong> directory is introduced, which also includes a <strong>webapp</strong> subdirectory for the streamlit application.</li>
+<li>Included a <strong>streamlit-based</strong> web application for the optimization. The web application simplifies the usage of the optimization script. <strong>Check out the <a href="https://i.imgur.com/3uLj7gv.gif">screencast of the web app</a></strong><ul>
+<li>Implemented historical performance tracking on daily granularity. For closed allocations the indexing rewards are calculated based on the network subgraph data. For active allocations the indexing rewards are calculated by gathering <strong>pending rewards data with rpc calls from the reward manager contract</strong>.</li>
+<li>Implemented a <strong>DIY Chart builder</strong> based on plotly. This is <strong>heavy work in progress</strong> so expect errors.</li>
+<li>Added key metrics from previous and current run</li>
+</ul>
+</li>
+<li>Abandoned tracking logic with log files for each run. Accumulated metrics of every optimization run in a optimizer_log.json with better structure and key-value pairs.</li>
+<li>Added a  POI fetching script (<strong>poi.py</strong>) to gather the latest acailable POIs for broken / bait subgraphs which are not correctly shown on the indexer agent. Requires a ssh tunnel to the indexer server or has to be run on the indexer server. <strong>CAUTION ⚠️: Always crosscheck your POIs before manually closing allocations. If possible always use the indexer CLI</strong></li>
+<li>Added Naive Method in Optimization Script to keep the ratio of signal / stake on a subgraph. In the model.reward optimization function we added the the part <code>(data[c]['stakedTokensTotal'] + sliced_stake)</code>. This results in better optimizations. The script suggested to allocate large stakes to subgraphs with an awesome allocation / signal ratio. But the signals were not that high. When allocating a large stake on these subgraphs, the optimization "broke" the ratio and the rewards were not correctly calculated. With this addition we now add the stake which we allocate to the subgraphs into the formular.</li>
+</ul>
+<pre><code class="language-python">model.rewards = pyomo.Objective(
+            expr=sum((model.x[c] / (data[c]['stakedTokensTotal'] + sliced_stake)) 
+        * (data[c]['signalledTokensTotal'] / 
+           data[c]['SignalledNetwork']) * 
+           data[c][reward_interval] for c in C),
+            sense=pyomo.maximize)
+</code></pre>
+<ul>
+<li>Added Fetching Status of network subgraph (UP/DOWN) : Outputs a warning if the networ subgraph is down.</li>
+</ul>
+<h3 id="bugfixes_2">Bugfixes 🐞<a class="headerlink" href="#bugfixes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Subgraphs where allocations have been placed but the subgraph name is not available (anymore, because of updates to the subgraph), were not correctly recognized in the optimization process</li>
+<li>Errors regarding mainnet launch were fixed</li>
+<li>Fixed Error when running optimization script without active allocations</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../7.%20Caution/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Transparency, Caution and Risk ⚠️⛔️" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Transparency, Caution and Risk ⚠️⛔️
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../9.%20Roadmap/" class="md-footer__link md-footer__link--next" aria-label="Next: Roadmap" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Roadmap
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

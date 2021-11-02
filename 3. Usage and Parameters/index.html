@@ -1,0 +1,716 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Usage and Parameters - Allocation Optimization Tooling</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage-and-parameters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Allocation Optimization Tooling" class="md-header__button md-logo" aria-label="Allocation Optimization Tooling" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Allocation Optimization Tooling
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Usage and Parameters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Allocation Optimization Tooling" class="md-nav__button md-logo" aria-label="Allocation Optimization Tooling" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Allocation Optimization Tooling
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Allocation Optimization Tooling Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20General/" class="md-nav__link">
+        General 🌝
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Quickstart/" class="md-nav__link">
+        🚀Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Usage and Parameters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Usage and Parameters
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-parameters" class="md-nav__link">
+    Available Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-tool" class="md-nav__link">
+    CLI - Tool
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI - Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script_nevertxt" class="md-nav__link">
+    script_never.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripttxt" class="md-nav__link">
+    script.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    automation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streamlit-app" class="md-nav__link">
+    Streamlit App
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Indexing%20Rewards/" class="md-nav__link">
+        Indexing Rewards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Developer/" class="md-nav__link">
+        Developer Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Caution/" class="md-nav__link">
+        Transparency, Caution and Risk ⚠️⛔️
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-parameters" class="md-nav__link">
+    Available Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-tool" class="md-nav__link">
+    CLI - Tool
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI - Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#script_nevertxt" class="md-nav__link">
+    script_never.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripttxt" class="md-nav__link">
+    script.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    automation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streamlit-app" class="md-nav__link">
+    Streamlit App
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="usage-and-parameters">Usage and Parameters<a class="headerlink" href="#usage-and-parameters" title="Permanent link">&para;</a></h1>
+<p>In this part of the documentation the available parameters for the allocation optimization process are explained 💡 and use-cases are shown. </p>
+<p>The user of this allocation optimization script can adjust the allocation optimization process according to their wishes through some parameters. The following adjustments can be made:</p>
+<ul>
+<li>
+<p>A blacklist can be created. The subgraphs in the blacklist are not considered in the allocation process. The script creates a blacklist using various functions to avoid possible bot-bait subgraphs. The script can then blacklist specific subgraph developers, exclude subgraphs with error status or an outdated version, and blacklist subgraphs based on the sync status of the local indexer database.</p>
+</li>
+<li>
+<p>A predefined subgraph list can be passed. Only these subgraphs should be considered in the allocation process and the stake should be distributed appropriately to these subgraphs.</p>
+</li>
+<li>
+<p>Slack alerting can be integrated using webhooks. Each execution of the script creates an alert in a defined Slack channel if the threshold for a possible reallocation has been reached.</p>
+</li>
+<li>
+<p>Threshold: With the threshold a percentage limit is determined. If this threshold is exceeded, a reallocation is appropriate and the tool creates a script.txt file containing the relevant commands for a reallocation.</p>
+</li>
+<li>
+<p>And many more parameters which are described in the <a href="./#available-parameters">3. Usage and Parameters#Available Parameters</a></p>
+</li>
+</ul>
+<p>The product to be built will allow for:</p>
+<ul>
+<li>
+<p>Visualization of the optimization process in a web app, which users can interact with to input various parameters such as the amount of stake to be allocated, maximum number of allocations, and maximum number of subgraphs on which to allocate, etc.</p>
+</li>
+<li>
+<p>Visualization of the historic and current rewards from Indexing in the web app</p>
+</li>
+<li>
+<p>Scheduling when such optimization processes should take place while automating the implementation of resulting suggestions.</p>
+</li>
+</ul>
+<h2 id="available-parameters">Available Parameters<a class="headerlink" href="#available-parameters" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>indexer_id</strong> : It is necessary to supply the indexer address.</p>
+</li>
+<li>
+<p><strong>max_percentage</strong>: With max_percentage (a value between <strong>0.0 - 1.0</strong>) it is possible to set an upper limit in how much (percentage-wise) an allocation on one single subgraph can take. In the current status, the optimization often allocates the entire stake into one single subgraph (possibly this won't change, even when there are many subgraphs). The optimizations allocates the entire stake into one subgraph, because this (often) maximizes the indexing rewards. But sometimes it is not useful to allocate everything into one subgraph (risk diversification, ...). Therefore with max_percentage it is possible to limit the amount of stake one single subgraph can take. If it is set to 0.9, and you have a stake of 1.5M GRT, then the single subgraph can at most get 1.35M GRT allocated. The remainder is allocated to the next optimal subgraph, or is split among the rest. We at Anyblock like to diversify, so we set <strong>max_percentage</strong> to <strong>0.2</strong></p>
+</li>
+<li><strong>threshold</strong> : Set the threshold (in %) when an allocation script will be created. Takes a value between <strong>0 - Infinity</strong>. If your current <strong>weekly</strong> Indexing Rewards are 5000 and the threshold is set to <strong>10</strong>. The optimization has to atleast result in an increase of 10% in indexing rewards to create an allocation script. <strong>BUT</strong> the calculation of the threshold takes also the transaction costs into account. This means the indexing rewards have to be higher than 10% compared to the previous indexing rewards <strong>AFTER</strong> the transaction costs for the reallocation have been subtracted. Our <strong>threshold</strong> is <strong>20</strong>%.</li>
+<li><strong>parallel_allocations</strong>: Amoutn of parallel allocations (required for creating the script.txt file). Basically splits the allocation amount into subsets of the supplied parallel allocation amount. (SOON TO BE DEPRECIATED ⚠️)</li>
+<li><strong>no-subgraph-list</strong>: Disables the config.json, so no manual subgraph list is provided. (Default)    </li>
+<li><strong>subgraph-list</strong>: utilizes the provided list in config.json as subgraphs that should be considered for the optimization.</li>
+<li><strong>blacklist</strong>: tells the script to ignore the blacklisted subgraphs in config.json. Also the blacklist will be created with the functions in <strong>subgraphs_health_check.py</strong>. </li>
+<li><strong>threshold_interval:</strong> Define the interval which is used for calculating the threshold requirment. Currently the recommended threshold interval is "weekly". Setting the threshold interval to weekly leads the optimization script to calculate threshold requirments based on weekly indexing rewards.</li>
+<li><strong>reserve_stake:</strong> Enables the indexer to define a dedicated amount of stake which should not be considered in the optimization. This reserve stake will not be allocated!</li>
+<li><strong>min_allocation:</strong> Set the minimum allocation in GRT per subgraph. If this value is above 0, every deployed subgraph will get the minimum allocation amount. <strong>ATTENTION 🚨: Setting this value above 0 leads to massive increases in transaction costs</strong>. Also setting this too high, can lead to a non feasible solution which leads to errors in the allocation optimization script. If the min_allocation is too high, the available stake can be insufficient.</li>
+<li><strong>min_allocated_grt_subgraph:</strong> Defines the minimum GRT allocation requirment for a subgraph to be considered in the optimization process. If a subgraph have less GRT allocated than the min_allocated_grt_subgraph, then it will not be considered in the optimization process.</li>
+<li><strong>min_signalled_grt_subgraph:</strong> Defines the minimum GRT signal requirment for a subgraph to be considered in the optimization process. If a subgraph have less GRT signalled than the min_signalled_grt_subgraph, then it will not be considered in the optimization process.</li>
+<li><strong>slack_alerting:</strong> Enables the user to configure a slack alerting in a dedicated slack channel. Outputs if the optimization reached the threshold and how much increase / decrease in rewards is expected after the optimization. Configure the webhook and channel in the <strong>.env</strong> file.</li>
+<li><strong>network</strong>: Select the network for the optimization run. Can either be set to "mainnet" (default) or "testnet".</li>
+<li><strong>automation</strong>: Activates the automation parameter. If --automation is used, the script automatically removes the active allocations, reallocates with the optimized results (if threshold is reached) and checks if changes are written to the chain.(Not Activated on default) </li>
+<li><strong>ignore_tx_costs</strong> : Ignores gas costs for allocation opening / closings for the threshold reached calculation.</li>
+</ol>
+<h2 id="cli-tool">CLI - Tool<a class="headerlink" href="#cli-tool" title="Permanent link">&para;</a></h2>
+<p><img alt="Check out the Demo!" src="https://i.imgur.com/gGHVDyQ.gif" /></p>
+<p>The CLI tool should be able to be used to automate the optimization and allocation process. In the future, the CLI tool will be executed with the help of a cron job in defined intervals and when the threshold is reached, the allocations will be automatically adjusted according to the optimization.</p>
+<p>The CLI tool is also used to run the optimization script without having to call a web interface. No streamlit web server is required to run the script.</p>
+<p>The CLI version supports the same parameterizations as the web interface.</p>
+<p>The script currently outputs two files: <strong>script_never.txt</strong> and <strong>script.txt</strong>. In future releases the optimization script will directly work with the indexer agent endpoint and communicate the allocation creation / closing with the help of graphQL mutations.</p>
+<h3 id="script_nevertxt">script_never.txt<a class="headerlink" href="#script_nevertxt" title="Permanent link">&para;</a></h3>
+<p>The <strong>script_never.txt</strong> file contains the necessary commands that must be entered to drop all current allocations at the end of the current epoch. This is necessary to be able to use the script.txt and reallocate. The script_never.txt takes all subgraphs available into consideration and clears all allocations. It should be adapted if this is not the desired outcome.</p>
+<p>An example of a script_never.txt file:</p>
+<pre><code class="language-shell">graph indexer rules set QmbYFfUKETrUwTQ7z8VD87KFoYJps8TGsSbM6m8bi6TaKG decisionBasis never &amp;&amp; \
+graph indexer rules set QmTj6fHgHjuKKm43YL3Sm2hMvMci4AkFzx22Mdo9W3dyn8 decisionBasis never &amp;&amp; \
+graph indexer rules get all --merged &amp;&amp; \
+graph indexer cost get all
+
+### [](https://github.com/anyblockanalytics/thegraph-allocation-optimization#scripttxt)
+</code></pre>
+<h3 id="scripttxt">script.txt<a class="headerlink" href="#scripttxt" title="Permanent link">&para;</a></h3>
+<p>The script file contains the necessary commands that must be entered to change the allocations and adjust them according to the optimization. The allocation script is general. It should be adapted according to the use-case.</p>
+<p>An example of a script.txt file:</p>
+<pre><code class="language-shell">graph indexer rules set QmRhYzT8HEZ9LziQhP6JfNfd4co9A7muUYQhPMJsMUojSF allocationAmount 406350.00 parallelAllocations 4 decisionBasis always &amp;&amp; \ 
+graph indexer cost set model QmRhYzT8HEZ9LziQhP6JfNfd4co9A7muUYQhPMJsMUojSF default.agora &amp;&amp; \ 
+graph indexer cost set variables QmRhYzT8HEZ9LziQhP6JfNfd4co9A7muUYQhPMJsMUojSF '{}' &amp;&amp; \ 
+graph indexer rules get all --merged &amp;&amp; \graph indexer cost get all
+</code></pre>
+<h3 id="automation">automation<a class="headerlink" href="#automation" title="Permanent link">&para;</a></h3>
+<p>If the flag <strong>--automation</strong> is set, the script automatically closes and opens reallocation if the threshold is reached.
+This requires setting the <strong>INDEXER_MANAGEMENT_ENDPOINT</strong> in the environment file. The default is set to "127.0.0.1:18000". 
+If the threshold is reached, the allocation queries all active allocations, sets the indexingRules to <strong>never</strong> and looks up
+if the AllocationClosed Event was successfully written on the blockchain. Web3.py with EventFilters is used to check for
+succesfull "AllocationClosed" and "AllocationsCreated" events.</p>
+<p>The script waits until all AllocationClosings are written on chain and then moves on to setIndexingRules always for the optimization results.
+The script checks with web3.py eventfilters if the allocation creations are written on the blockchain.</p>
+<h2 id="streamlit-app">Streamlit App<a class="headerlink" href="#streamlit-app" title="Permanent link">&para;</a></h2>
+<p>Check out the screencast of the web app:</p>
+<p><strong><img alt="Web App" src="https://i.imgur.com/3uLj7gv.gif" /></strong> </p>
+<p>It is possible to parameterize the optimization run on the sidebar. After setting up the prefered settings, click on the button "run optimization". If the blacklist parameter is checked, the optimization run will take a while (<strong>less than 2 minutes</strong>). </p>
+<p>After running the optimization script, the dashboard is further populated.</p>
+<ul>
+<li>Data from previous optimizations as JSON</li>
+<li>Price Data (ETH-USD, GRT-USD, Gas Price in Gwei)  </li>
+<li>Historical performance for Closed/Active/Combined allocations</li>
+<li>Data Table with allocation data by date</li>
+<li>DIY Chart Builder (WIP)</li>
+<li>Performance Metrics which visualize rewards per hour and optimized allocations on a timeline</li>
+<li>Optimization run metrics:</li>
+<li>Indexer stake, current rewards (hour/day/weekly/yearly)</li>
+<li>Pending rewards, active allocations, average stake/signal ratio, average hourly rewards</li>
+<li>Current allocation table</li>
+<li>Distribution of rewards/stake signal ratio</li>
+<li>Threshold pop up, </li>
+<li>Information about the subgraphs the optimization tool recommends. (Boxes with dedicated image, description and metrics) </li>
+<li>Output of allocation and allocation closing commands</li>
+</ul>
+<p>The web app makes it possible to follow the optimization process in a simple way. The results are visualized and recommendations for action are suggested. If the results are satisfactory, the commands can be copied for reallocation and executed in the Indexer CLI.</p>
+<p>The web app represents a semi-automated approach, where allocations are not yet set or closed automatically. The Web App also serves to build trust in the tool so that users know how the optimization works before they use the fully automated version.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../2.%20Quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 🚀Quickstart" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              🚀Quickstart
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../4.%20Indexing%20Rewards/" class="md-footer__link md-footer__link--next" aria-label="Next: Indexing Rewards" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Indexing Rewards
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
